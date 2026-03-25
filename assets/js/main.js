@@ -2086,16 +2086,60 @@ function attachVideoFallback(video) {
   video.setAttribute("src", preferred);
 }
 
-async function initPage() {
-  await Promise.all([
-    renderT2VCases(),
-    renderI2VCases(),
-    renderFLF2VCases(),
-    renderEditingCases(),
-    renderInterleavedCases(),
-    renderTIV2VCases()
-  ]);
-  document.querySelectorAll("video.demo-video").forEach(attachVideoFallback);
+const PANEL_RENDERERS = {
+  t2vCaseGrid: renderT2VCases,
+  i2vCaseGrid: renderI2VCases,
+  flf2vCaseGrid: renderFLF2VCases,
+  editingCaseGrid: renderEditingCases,
+  interleavedCaseGrid: renderInterleavedCases,
+  tiv2vCaseGrid: renderTIV2VCases,
+};
+
+function activatePanelVideos(panel) {
+  panel.querySelectorAll("video.demo-video").forEach((video) => {
+    if (!video.getAttribute("src")) {
+      attachVideoFallback(video);
+    }
+  });
 }
 
-initPage();
+async function activatePanel(panel) {
+  if (panel.classList.contains("videos-loaded")) {
+    return;
+  }
+  panel.classList.add("videos-loaded");
+
+  for (const [gridId, renderer] of Object.entries(PANEL_RENDERERS)) {
+    if (panel.querySelector(`#${gridId}`)) {
+      await renderer();
+      break;
+    }
+  }
+
+  activatePanelVideos(panel);
+}
+
+function setupLazyLoading() {
+  const panels = document.querySelectorAll(".task-panel");
+
+  if (!("IntersectionObserver" in window)) {
+    panels.forEach((panel) => activatePanel(panel));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          observer.unobserve(entry.target);
+          activatePanel(entry.target);
+        }
+      });
+    },
+    { rootMargin: "600px 0px", threshold: 0 }
+  );
+
+  panels.forEach((panel) => observer.observe(panel));
+}
+
+setupLazyLoading();

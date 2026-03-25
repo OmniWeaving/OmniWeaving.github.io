@@ -944,6 +944,32 @@ body {
   object-fit: cover;
 }
 
+video.demo-video:not([src]) {
+  background: linear-gradient(90deg, #0c1525, #162040, #0c1525);
+  background-size: 200% 100%;
+  animation: videoShimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes videoShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+[id$="CaseGrid"]:empty {
+  min-height: 100px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed rgba(148, 163, 184, 0.12);
+  border-radius: 10px;
+}
+
+[id$="CaseGrid"]:empty::after {
+  content: "↓ Scroll down to load demos";
+  color: var(--muted);
+  font-size: 0.85rem;
+  opacity: 0.5;
+}
+
 .slot-label {
   margin-top: 0.72rem;
   color: var(--muted);
@@ -1222,7 +1248,7 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 940px;
+  min-width: 1240px;
 }
 
 thead th {
