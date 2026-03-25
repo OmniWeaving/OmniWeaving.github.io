@@ -888,7 +888,7 @@ body {
 }
 
 .compact-output::before {
-  content: "Output video";
+  content: "Output Video";
   display: block;
   margin-bottom: 0.18rem;
   font-size: 0.77rem;
