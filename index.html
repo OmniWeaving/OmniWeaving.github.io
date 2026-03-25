@@ -22,7 +22,7 @@
         <a href="#abstract">Abstract</a>
         <a href="#architecture">Architecture</a>
         <a href="#videos">Examples</a>
-        <a href="#leaderboard">Leaderboard</a>
+        <a href="#leaderboard">Results</a>
         <a href="#bibtex">BibTeX</a>
       </nav>
     </div>
@@ -112,42 +112,49 @@
           <h2 class="section-title section-title-compact">Qualitative Examples</h2>
         </div>
 
-        <div class="videos-task-stack">
-          <div class="foundation-compact-grid">
-          <article class="task-panel compact-panel">
-            <div class="task-panel-head compact-head">
-              <h4>Text-to-Video (T2V)</h4>
-              <span class="task-badge">Text → Video</span>
-            </div>
-            <div class="compact-case-grid flf2v-case-grid t2v-case-grid" id="t2vCaseGrid"></div>
-          </article>
+        <nav class="task-tabs">
+          <button class="task-tab active" data-task="t2v">T2V</button>
+          <button class="task-tab" data-task="i2v">I2V</button>
+          <button class="task-tab" data-task="flf2v">Key-Frames-to-Video</button>
+          <button class="task-tab" data-task="editing">Video-to-Video</button>
+          <button class="task-tab" data-task="interleaved">Multi-Image-to-Video</button>
+          <button class="task-tab" data-task="tiv2v">Text-Image-Video-to-Video</button>
+          <button class="task-tab" data-task="reasoning">Reasoning-Augmented VideoGen</button>
+        </nav>
 
-          <article class="task-panel compact-panel">
-            <div class="task-panel-head compact-head">
-              <h4>First-Frame-to-Video (I2V)</h4>
-              <span class="task-badge">Image + Text → Video</span>
-            </div>
-            <div class="compact-case-grid flf2v-case-grid i2v-case-grid" id="i2vCaseGrid"></div>
-          </article>
+        <article class="task-panel compact-panel active-task" data-task="t2v">
+          <div class="task-panel-head compact-head">
+            <h4>Text-to-Video (T2V)</h4>
+            <span class="task-badge">Text → Video</span>
+          </div>
+          <div class="compact-case-grid flf2v-case-grid t2v-case-grid" id="t2vCaseGrid"></div>
+        </article>
 
-          <article class="task-panel compact-panel">
-            <div class="task-panel-head compact-head">
-              <h4>Key-Frames-to-Video</h4>
-              <span class="task-badge">2 * Images + Text → Video</span>
-            </div>
-            <div class="compact-case-grid flf2v-case-grid" id="flf2vCaseGrid"></div>
-          </article>
+        <article class="task-panel compact-panel" data-task="i2v">
+          <div class="task-panel-head compact-head">
+            <h4>First-Frame-to-Video (I2V)</h4>
+            <span class="task-badge">Image + Text → Video</span>
+          </div>
+          <div class="compact-case-grid flf2v-case-grid i2v-case-grid" id="i2vCaseGrid"></div>
+        </article>
 
-          <article class="task-panel compact-panel">
-            <div class="task-panel-head compact-head">
-              <h4>Video-to-Video Editing</h4>
-              <span class="task-badge">Video + Text → Video</span>
-            </div>
-            <div class="editing-case-stack" id="editingCaseGrid"></div>
-          </article>
-        </div>
+        <article class="task-panel compact-panel" data-task="flf2v">
+          <div class="task-panel-head compact-head">
+            <h4>Key-Frames-to-Video</h4>
+            <span class="task-badge">2 * Images + Text → Video</span>
+          </div>
+          <div class="compact-case-grid flf2v-case-grid" id="flf2vCaseGrid"></div>
+        </article>
 
-        <article class="task-panel compact-panel interleaved-unified-panel">
+        <article class="task-panel compact-panel" data-task="editing">
+          <div class="task-panel-head compact-head">
+            <h4>Video-to-Video Editing</h4>
+            <span class="task-badge">Video + Text → Video</span>
+          </div>
+          <div class="editing-case-stack" id="editingCaseGrid"></div>
+        </article>
+
+        <article class="task-panel compact-panel" data-task="interleaved">
           <div class="task-panel-head compact-head">
             <h4>Compositional Multi-Image-to-Video</h4>
             <span class="task-badge">1-4 Images + Text → Video</span>
@@ -155,7 +162,7 @@
           <div class="interleaved-case-grid interleaved-case-grid-unified" id="interleavedCaseGrid"></div>
         </article>
 
-        <article class="task-panel compact-panel tiv2v-unified-panel">
+        <article class="task-panel compact-panel" data-task="tiv2v">
           <div class="task-panel-head compact-head">
             <h4>Text-Image-Video-to-Video</h4>
             <span class="task-badge">Video + Image + Text → Video</span>
@@ -163,7 +170,7 @@
           <div class="compact-case-grid flf2v-case-grid tiv2v-case-grid" id="tiv2vCaseGrid"></div>
         </article>
 
-        <article class="task-panel compact-panel reasoning-unified-panel">
+        <article class="task-panel compact-panel" data-task="reasoning">
           <div class="task-panel-head compact-head">
             <h4>Reasoning-Augmented Video Generation</h4>
             <span class="task-badge">Image(s) + Text → Reasoning + Video</span>
@@ -276,13 +283,12 @@
             </article>
           </div>
         </article>
-        </div>
       </div>
     </section>
 
     <section id="leaderboard" class="section">
       <div class="container">
-        <h2 class="section-title section-title-compact">IntelligentVBench LeaderBoard</h2>
+        <h2 class="section-title section-title-compact">Main Results on IntelligentVBench</h2>
 
         <div class="table-wrap">
           <table>

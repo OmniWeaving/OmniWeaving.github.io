@@ -2086,22 +2086,14 @@ function attachVideoFallback(video) {
   video.setAttribute("src", preferred);
 }
 
-const PANEL_RENDERERS = {
-  t2vCaseGrid: renderT2VCases,
-  i2vCaseGrid: renderI2VCases,
-  flf2vCaseGrid: renderFLF2VCases,
-  editingCaseGrid: renderEditingCases,
-  interleavedCaseGrid: renderInterleavedCases,
-  tiv2vCaseGrid: renderTIV2VCases,
+const TASK_RENDERERS = {
+  t2v: renderT2VCases,
+  i2v: renderI2VCases,
+  flf2v: renderFLF2VCases,
+  editing: renderEditingCases,
+  interleaved: renderInterleavedCases,
+  tiv2v: renderTIV2VCases,
 };
-
-function activatePanelVideos(panel) {
-  panel.querySelectorAll("video.demo-video").forEach((video) => {
-    if (!video.getAttribute("src")) {
-      attachVideoFallback(video);
-    }
-  });
-}
 
 async function activatePanel(panel) {
   if (panel.classList.contains("videos-loaded")) {
@@ -2109,37 +2101,41 @@ async function activatePanel(panel) {
   }
   panel.classList.add("videos-loaded");
 
-  for (const [gridId, renderer] of Object.entries(PANEL_RENDERERS)) {
-    if (panel.querySelector(`#${gridId}`)) {
-      await renderer();
-      break;
+  const renderer = TASK_RENDERERS[panel.dataset.task];
+  if (renderer) {
+    await renderer();
+  }
+
+  panel.querySelectorAll("video.demo-video").forEach((video) => {
+    if (!video.getAttribute("src")) {
+      attachVideoFallback(video);
     }
-  }
-
-  activatePanelVideos(panel);
+  });
 }
 
-function setupLazyLoading() {
-  const panels = document.querySelectorAll(".task-panel");
+function switchTask(taskId) {
+  document.querySelectorAll(".task-tab").forEach((tab) => {
+    tab.classList.toggle("active", tab.dataset.task === taskId);
+  });
 
-  if (!("IntersectionObserver" in window)) {
-    panels.forEach((panel) => activatePanel(panel));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          observer.unobserve(entry.target);
-          activatePanel(entry.target);
-        }
-      });
-    },
-    { rootMargin: "600px 0px", threshold: 0 }
-  );
-
-  panels.forEach((panel) => observer.observe(panel));
+  document.querySelectorAll(".task-panel[data-task]").forEach((panel) => {
+    const isActive = panel.dataset.task === taskId;
+    panel.classList.toggle("active-task", isActive);
+    if (isActive) {
+      activatePanel(panel);
+    }
+  });
 }
 
-setupLazyLoading();
+function setupTabs() {
+  document.querySelectorAll(".task-tab").forEach((tab) => {
+    tab.addEventListener("click", () => switchTask(tab.dataset.task));
+  });
+
+  const firstPanel = document.querySelector(".task-panel[data-task].active-task");
+  if (firstPanel) {
+    activatePanel(firstPanel);
+  }
+}
+
+setupTabs();
