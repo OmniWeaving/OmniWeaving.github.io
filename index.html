@@ -20,9 +20,9 @@
       <a class="brand" href="#top">OmniWeaving</a>
       <nav>
         <a href="#abstract">Abstract</a>
-        <a href="#videos">Videos2</a>
-        <a href="#method">Method</a>
-        <a href="#leaderboard">LeaderBoard</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#videos">Examples</a>
+        <a href="#leaderboard">Leaderboard</a>
         <a href="#bibtex">BibTeX</a>
       </nav>
     </div>
@@ -42,12 +42,13 @@
         </p>
         <p class="hero-affiliation"><sup>1</sup>Zhejiang University · <sup>2</sup>Tencent Hunyuan · <sup>3</sup>Nanyang Technological University</p>
         <p class="hero-notes"><sup>*</sup>Equal Contribution · <sup>§</sup>Corresponding Authors · <sup>†</sup>Project Leader</p>
+        <p class="hero-notes">Work done during Kaihang Pan's internship at Tencent Hunyuan.</p>
 
         <div class="link-buttons">
           <a class="link-btn" href="#" target="_blank"><i class="ai ai-arxiv"></i> Paper</a>
-          <a class="link-btn" href="#" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-          <a class="link-btn" href="#" target="_blank"><span class="hf-icon">🤗</span> Model</a>
-          <a class="link-btn" href="#" target="_blank"><span class="hf-icon">🤗</span> IntelligentVBench</a>
+          <a class="link-btn" href="#" target="_blank"><i class="fa-brands fa-github"></i> Code (Under Review)</a>
+          <a class="link-btn" href="#" target="_blank"><span class="hf-icon">🤗</span> Model (Under Review)</a>
+          <a class="link-btn" href="#" target="_blank"><span class="hf-icon">🤗</span> IntelligentVBench (Coming Soon)</a>
         </div>
       </div>
     </section>
@@ -55,10 +56,11 @@
     <section class="update-note-section">
       <div class="container narrow">
         <div class="update-note-card">
-          <p class="update-note-title">Notice</p>
+          <p class="update-note-title">News</p>
           <ul class="update-note-list">
-            <li>Our model and code are currently under internal compliance review, and are expected to be publicly available very soon.</li>
-            <li>We release the WiseEdit paper on Arxiv.</li>
+            <li>📌 <span class="notice-date">[2026-03-25]</span> Our model and code are under internal compliance review, and are expected to be publicly available very soon.</li>
+            <li><span class="notice-date">[2026-03-25]</span> We release the OmniWeaving paper on Arxiv.</li>
+            <li><span class="notice-date">[2026-03-25]</span> We release the webpage. Due to the large number of video demos, initial page loading may take a moment — please allow a few seconds for all videos to fully load.</li>
           </ul>
         </div>
       </div>
@@ -66,7 +68,7 @@
 
     <section id="abstract" class="section">
       <div class="container narrow">
-        <h2 class="section-title">Abstract</h2>
+        <h2 class="section-title section-title-compact">Abstract</h2>
         <div class="glass-card">
           <p>
             While proprietary systems such as Seedance-2.0 have achieved remarkable success in omni-capable video generation,
@@ -84,9 +86,9 @@
       </div>
     </section>
 
-    <section class="section">
+    <section id="architecture" class="section">
       <div class="container">
-        <h2 class="section-title">Model Architecture (Figure 3)</h2>
+        <h2 class="section-title section-title-compact">Model Architecture</h2>
         <div class="architecture-brief">
           <p>
             OmniWeaving adopts a unified <strong>MLLM + MMDiT + VAE</strong> architecture that jointly handles multimodal understanding and video generation in one framework.
@@ -97,8 +99,7 @@
           </ul>
         </div>
         <div class="hero-video-card architecture-card">
-          <img class="architecture-image" src="assets/images/fig3_architecture.png" alt="OmniWeaving Figure 3 Architecture" />
-          <div class="slot-label">Extracted from paper Figure 3 · <code>assets/images/fig3_architecture.png</code></div>
+          <img class="architecture-image" src="assets/images/architecture.jpg" alt="OmniWeaving Figure 3 Architecture" />
         </div>
       </div>
     </section>
@@ -106,15 +107,11 @@
     <section id="videos" class="section">
       <div class="container">
         <div class="title-row">
-          <h2 class="section-title section-title-compact">Massive Video Gallery (Easy to Replace)</h2>
-          <span class="chip">A lot of room for your final demos</span>
+          <h2 class="section-title section-title-compact">Qualitative Examples</h2>
         </div>
 
-        <h3 class="sub-title">A. Foundational Tasks (Dense Cases)</h3>
-        <p class="task-intro">
-          已改为更紧凑排版：视频更小、案例更密。四类基础任务均保留独立输入形态（Text / Image / First+Last Frames / Text+Video）。
-        </p>
-        <div class="foundation-compact-grid">
+        <div class="videos-task-stack">
+          <div class="foundation-compact-grid">
           <article class="task-panel compact-panel">
             <div class="task-panel-head compact-head">
               <h4>Text-to-Video (T2V)</h4>
@@ -125,7 +122,7 @@
 
           <article class="task-panel compact-panel">
             <div class="task-panel-head compact-head">
-              <h4>Image-to-Video (I2V)</h4>
+              <h4>First-Frame-to-Video (I2V)</h4>
               <span class="task-badge">Image + Text → Video</span>
             </div>
             <div class="compact-case-grid flf2v-case-grid i2v-case-grid" id="i2vCaseGrid"></div>
@@ -133,35 +130,42 @@
 
           <article class="task-panel compact-panel">
             <div class="task-panel-head compact-head">
-              <h4>First+Last-Frame-to-Video (FLF2V)</h4>
-              <span class="task-badge">First/Last + Text → Video</span>
+              <h4>Key-Frames-to-Video</h4>
+              <span class="task-badge">2 * Images + Text → Video</span>
             </div>
             <div class="compact-case-grid flf2v-case-grid" id="flf2vCaseGrid"></div>
           </article>
 
           <article class="task-panel compact-panel">
             <div class="task-panel-head compact-head">
-              <h4>Video Editing (T + V → V)</h4>
-              <span class="task-badge">Text + Video → Edited</span>
+              <h4>Video-to-Video Editing</h4>
+              <span class="task-badge">Video + Text → Video</span>
             </div>
             <div class="editing-case-stack" id="editingCaseGrid"></div>
           </article>
         </div>
 
-        <h3 class="sub-title">B. Compositional Generation</h3>
-        <p class="task-intro">Interleaved Text+Multi-Image 统一在一个大块内展示，按 1 张图 → 2 张图 → 3 张图 → 4 张图顺序自动排版；同排 4 个 case，输入与输出宽度严格对齐。</p>
         <article class="task-panel compact-panel interleaved-unified-panel">
+          <div class="task-panel-head compact-head">
+            <h4>Compositional Multi-Image-to-Video</h4>
+            <span class="task-badge">1-4 Images + Text → Video</span>
+          </div>
           <div class="interleaved-case-grid interleaved-case-grid-unified" id="interleavedCaseGrid"></div>
         </article>
 
-        <p class="task-intro">TIV2V 统一在 Interleaved 下方展示，按 replace → back → add 顺序自动排版，每行 4 个 case。</p>
         <article class="task-panel compact-panel tiv2v-unified-panel">
+          <div class="task-panel-head compact-head">
+            <h4>Text-Image-Video-to-Video</h4>
+            <span class="task-badge">Video + Image + Text → Video</span>
+          </div>
           <div class="compact-case-grid flf2v-case-grid tiv2v-case-grid" id="tiv2vCaseGrid"></div>
         </article>
 
-        <h3 class="sub-title">C. Reasoning-Augmented Video Generation</h3>
-        <p class="task-intro">Reasoning-Augmented Video Generation 按 0→5 顺序展示，3 行 × 2 列；每个 case 采用左（输入图片+prompt）-中（reasoning trace）-右（输出视频）结构。</p>
         <article class="task-panel compact-panel reasoning-unified-panel">
+          <div class="task-panel-head compact-head">
+            <h4>Reasoning-Augmented Video Generation</h4>
+            <span class="task-badge">Image(s) + Text → Reasoning + Video</span>
+          </div>
           <div class="reasoning-case-grid">
             <article class="compact-case reasoning-case">
               <div class="reasoning-col reasoning-input-col">
@@ -169,7 +173,7 @@
                 <div class="reasoning-image-row count-1">
                   <img class="reasoning-input-image" src="assets/cases/reasoning/0.png" alt="Reasoning input 0-1" />
                 </div>
-                <p class="reasoning-user-prompt">Prompt: The woman checks her look in the mirror, then slowly turns toward camera with a gentle smile.</p>
+                <p class="reasoning-user-prompt"><strong class="prompt-inline-label">Prompt:</strong> The woman is preparing for an event or outing.</p>
               </div>
               <div class="reasoning-col reasoning-trace-col">
                 <strong>Reasoning</strong>
@@ -186,7 +190,7 @@
                 <div class="reasoning-image-row count-1">
                   <img class="reasoning-input-image" src="assets/cases/reasoning/1.png" alt="Reasoning input 1-1" />
                 </div>
-                <p class="reasoning-user-prompt">Prompt: Two girls reunite with their missing poodle, then kneel down to pet and hug it tightly.</p>
+                <p class="reasoning-user-prompt"><strong class="prompt-inline-label">Prompt:</strong> Two girls were reunited with their long-lost dog.</p>
               </div>
               <div class="reasoning-col reasoning-trace-col">
                 <strong>Reasoning</strong>
@@ -204,7 +208,7 @@
                   <img class="reasoning-input-image" src="assets/cases/reasoning/2_1.png" alt="Reasoning input 2-1" />
                   <img class="reasoning-input-image" src="assets/cases/reasoning/2_2.png" alt="Reasoning input 2-2" />
                 </div>
-                <p class="reasoning-user-prompt">Prompt: A child pumps air into a basketball, making it visibly inflate while another ball stays flat.</p>
+                <p class="reasoning-user-prompt"><strong class="prompt-inline-label">Prompt:</strong> Generate a video based on the provided first and last frames.</p>
               </div>
               <div class="reasoning-col reasoning-trace-col">
                 <strong>Reasoning</strong>
@@ -222,7 +226,7 @@
                   <img class="reasoning-input-image" src="assets/cases/reasoning/3_1.png" alt="Reasoning input 3-1" />
                   <img class="reasoning-input-image" src="assets/cases/reasoning/3_2.png" alt="Reasoning input 3-2" />
                 </div>
-                <p class="reasoning-user-prompt">Prompt: Start from a wheel close-up, then tilt up to reveal the turquoise car and the Volvo behind it.</p>
+                <p class="reasoning-user-prompt"><strong class="prompt-inline-label">Prompt:</strong> Generate a video based on the provided first and last frames.</p>
               </div>
               <div class="reasoning-col reasoning-trace-col">
                 <strong>Reasoning</strong>
@@ -240,7 +244,7 @@
                   <img class="reasoning-input-image" src="assets/cases/reasoning/4_1.png" alt="Reasoning input 4-1" />
                   <img class="reasoning-input-image" src="assets/cases/reasoning/4_2.png" alt="Reasoning input 4-2" />
                 </div>
-                <p class="reasoning-user-prompt">Prompt: A gloved hand enters frame and sprinkles chili flakes over cheesy meatballs on a wooden platter.</p>
+                <p class="reasoning-user-prompt"><strong class="prompt-inline-label">Prompt:</strong> Generate a video based on the provided first and last frames.</p>
               </div>
               <div class="reasoning-col reasoning-trace-col">
                 <strong>Reasoning</strong>
@@ -258,7 +262,7 @@
                   <img class="reasoning-input-image" src="assets/cases/reasoning/5_1.png" alt="Reasoning input 5-1" />
                   <img class="reasoning-input-image" src="assets/cases/reasoning/5_2.png" alt="Reasoning input 5-2" />
                 </div>
-                <p class="reasoning-user-prompt">Prompt: Begin at a crosswalk with pedestrians, pan right to parked cars, and finish on a street sign.</p>
+                <p class="reasoning-user-prompt"><strong class="prompt-inline-label">Prompt:</strong> Generate a video based on the provided first and last frames.</p>
               </div>
               <div class="reasoning-col reasoning-trace-col">
                 <strong>Reasoning</strong>
@@ -270,220 +274,13 @@
             </article>
           </div>
         </article>
-
-        <div class="interleaved-groups">
-          <article class="task-panel compact-panel interleaved-group">
-            <div class="task-panel-head compact-head">
-              <h4>Interleaved Text+Multi-Image (1 Image)</h4>
-              <span class="task-badge">3 Cases</span>
-            </div>
-            <div class="interleaved-case-grid">
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-1">
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="1-image case 1 input" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Add smooth camera motion and cinematic lighting.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-01.mp4"></video>
-                <code>composition-01.mp4</code>
-              </article>
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-1">
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="1-image case 2 input" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Keep the subject identity and enrich background details.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-02.mp4"></video>
-                <code>composition-02.mp4</code>
-              </article>
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-1">
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="1-image case 3 input" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Extend single-image cue into a dynamic cinematic shot.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-03.mp4"></video>
-                <code>composition-03.mp4</code>
-              </article>
-            </div>
-          </article>
-
-          <article class="task-panel compact-panel interleaved-group">
-            <div class="task-panel-head compact-head">
-              <h4>Interleaved Text+Multi-Image (2 Images)</h4>
-              <span class="task-badge">3 Cases</span>
-            </div>
-            <div class="interleaved-case-grid">
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-2">
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="2-images case 1 input 1" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="2-images case 1 input 2" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Blend two references while keeping temporal coherence.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-04.mp4"></video>
-                <code>composition-04.mp4</code>
-              </article>
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-2">
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="2-images case 2 input 1" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="2-images case 2 input 2" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Preserve identity and inject style from second reference.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-05.mp4"></video>
-                <code>composition-05.mp4</code>
-              </article>
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-2">
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="2-images case 3 input 1" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="2-images case 3 input 2" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Fuse two visual cues under one consistent camera path.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-06.mp4"></video>
-                <code>composition-06.mp4</code>
-              </article>
-            </div>
-          </article>
-
-          <article class="task-panel compact-panel interleaved-group">
-            <div class="task-panel-head compact-head">
-              <h4>Interleaved Text+Multi-Image (3 Images)</h4>
-              <span class="task-badge">3 Cases</span>
-            </div>
-            <div class="interleaved-case-grid">
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-3">
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="3-images case 1 input 1" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="3-images case 1 input 2" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="3-images case 1 input 3" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Combine subject, style, and temporal cue from three references.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-01.mp4"></video>
-                <code>composition-01.mp4</code>
-              </article>
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-3">
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="3-images case 2 input 1" />
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="3-images case 2 input 2" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="3-images case 2 input 3" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Interleave references to guide motion, texture, and framing.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-03.mp4"></video>
-                <code>composition-03.mp4</code>
-              </article>
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-3">
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="3-images case 3 input 1" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="3-images case 3 input 2" />
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="3-images case 3 input 3" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Keep global consistency while composing from three anchors.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-05.mp4"></video>
-                <code>composition-05.mp4</code>
-              </article>
-            </div>
-          </article>
-
-          <article class="task-panel compact-panel interleaved-group">
-            <div class="task-panel-head compact-head">
-              <h4>Interleaved Text+Multi-Image (4 Images)</h4>
-              <span class="task-badge">3 Cases</span>
-            </div>
-            <div class="interleaved-case-grid">
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-4">
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="4-images case 1 input 1" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="4-images case 1 input 2" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="4-images case 1 input 3" />
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="4-images case 1 input 4" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Integrate four references with stable identity and scene logic.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-02.mp4"></video>
-                <code>composition-02.mp4</code>
-              </article>
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-4">
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="4-images case 2 input 1" />
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="4-images case 2 input 2" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="4-images case 2 input 3" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="4-images case 2 input 4" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Compose object layout from four visual constraints.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-04.mp4"></video>
-                <code>composition-04.mp4</code>
-              </article>
-              <article class="interleaved-case">
-                <div class="comp-input-strip input-align-video">
-                  <span class="mini-label">Input</span>
-                  <div class="interleaved-image-row count-4">
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="4-images case 3 input 1" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-first.png" alt="4-images case 3 input 2" />
-                    <img class="interleaved-thumb" src="assets/inputs/i2v-ref-01.png" alt="4-images case 3 input 3" />
-                    <img class="interleaved-thumb" src="assets/inputs/flf2v-last.png" alt="4-images case 3 input 4" />
-                  </div>
-                  <p class="comp-prompt">Prompt: Use four anchors to guide content, style, and motion jointly.</p>
-                </div>
-                <video class="demo-video compact-video interleaved-video" controls muted playsinline preload="metadata" data-src="assets/videos/composition-06.mp4"></video>
-                <code>composition-06.mp4</code>
-              </article>
-            </div>
-          </article>
-        </div>
-
-        <p class="replace-tip">
-          Quick replace rule: put your real videos into <code>assets/videos/</code> with the same file names above.
-          If you also want to展示输入示例图，可放在 <code>assets/inputs/</code>（按上面代码名替换即可）。
-          若视频文件缺失，页面会自动回退到 <code>placeholder.mp4</code>。
-        </p>
-      </div>
-    </section>
-
-    <section id="method" class="section">
-      <div class="container narrow">
-        <h2 class="section-title">Method Overview</h2>
-        <div class="glass-card">
-          <ul>
-            <li><strong>Unified Architecture:</strong> MLLM + MMDiT + VAE for seamless multimodal understanding and generation.</li>
-            <li><strong>Free-form Multimodal Composition:</strong> handles interleaved text, multi-image, and video inputs in one model.</li>
-            <li><strong>Reasoning-Informed Generation:</strong> model acts like an agent to infer implicit user intent and scene logic.</li>
-            <li><strong>Three-stage Training Recipe:</strong> alignment, multi-task pretraining, and reasoning-augmented fine-tuning.</li>
-          </ul>
         </div>
       </div>
     </section>
 
     <section id="leaderboard" class="section">
       <div class="container">
-        <h2 class="section-title">IntelligentVBench LeaderBoard</h2>
+        <h2 class="section-title section-title-compact">IntelligentVBench LeaderBoard</h2>
 
         <div class="table-wrap">
           <h3>Unified + Task-Specific Models (single table)</h3>
@@ -502,14 +299,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>Unified</td><td>VACE-Wan2.1</td><td>14B</td><td>3.40</td><td>3.86</td><td>1.53</td><td>4.35</td><td>3.95</td><td>3.34</td></tr>
-              <tr><td>Unified</td><td>VACE-LTX</td><td>2B</td><td>2.87</td><td>3.10</td><td>1.35</td><td>2.83</td><td>2.29</td><td>2.14</td></tr>
-              <tr><td>Unified</td><td>VINO</td><td>13B+4B</td><td>3.10</td><td>2.47</td><td>2.76</td><td>4.13</td><td>4.16</td><td>3.28</td></tr>
-              <tr><td>Unified</td><td>UniVideo (query)</td><td>13B+7B</td><td>3.39</td><td>2.48</td><td>3.46</td><td>3.89</td><td>3.63</td><td>2.89</td></tr>
-              <tr><td>Unified</td><td>UniVideo (hidden)</td><td>13B+7B</td><td>3.61</td><td>2.58</td><td>3.36</td><td>3.97</td><td>3.90</td><td>3.03</td></tr>
-              <tr class="highlight-row"><td>Unified</td><td>OmniWeaving (w/o think)</td><td>8.3B+7B</td><td>3.72</td><td>4.45</td><td>3.89</td><td>4.49</td><td>4.27</td><td>4.03</td></tr>
-              <tr class="highlight-row-soft"><td>Unified</td><td>OmniWeaving (think)</td><td>8.3B+7B</td><td><strong>3.93</strong></td><td><strong>4.54</strong></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-
               <tr><td>Task-Specific</td><td>CogVideoX-I2V</td><td>5B</td><td>3.39</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
               <tr><td>Task-Specific</td><td>Wan2.1-I2V</td><td>14B</td><td>3.48</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
               <tr><td>Task-Specific</td><td>HunyuanVideo-I2V</td><td>13B</td><td>3.80</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
@@ -520,18 +309,24 @@
               <tr><td>Task-Specific</td><td>SkyReels-V3</td><td>14B</td><td>-</td><td>-</td><td>-</td><td>3.94</td><td>3.86</td><td><strong>3.33</strong></td></tr>
               <tr><td>Task-Specific</td><td>MAGREF</td><td>14B</td><td>-</td><td>-</td><td>-</td><td>3.32</td><td>3.39</td><td>3.06</td></tr>
               <tr><td>Task-Specific</td><td>Phantom</td><td>14B</td><td>-</td><td>-</td><td>-</td><td>3.48</td><td>3.55</td><td>3.12</td></tr>
+              <tr><td>Unified</td><td>VACE-Wan2.1</td><td>14B</td><td>3.40</td><td>3.86</td><td>1.53</td><td>4.35</td><td>3.95</td><td>3.34</td></tr>
+              <tr><td>Unified</td><td>VACE-LTX</td><td>2B</td><td>2.87</td><td>3.10</td><td>1.35</td><td>2.83</td><td>2.29</td><td>2.14</td></tr>
+              <tr><td>Unified</td><td>VINO</td><td>13B+4B</td><td>3.10</td><td>2.47</td><td>2.76</td><td>4.13</td><td>4.16</td><td>3.28</td></tr>
+              <tr><td>Unified</td><td>UniVideo (query)</td><td>13B+7B</td><td>3.39</td><td>2.48</td><td>3.46</td><td>3.89</td><td>3.63</td><td>2.89</td></tr>
+              <tr><td>Unified</td><td>UniVideo (hidden)</td><td>13B+7B</td><td>3.61</td><td>2.58</td><td>3.36</td><td>3.97</td><td>3.90</td><td>3.03</td></tr>
+              <tr class="highlight-row"><td>Unified</td><td>OmniWeaving (w/o think)</td><td>8.3B+7B</td><td>3.72</td><td>4.45</td><td>3.89</td><td>4.49</td><td>4.27</td><td>4.03</td></tr>
+              <tr class="highlight-row-soft"><td>Unified</td><td>OmniWeaving (think)</td><td>8.3B+7B</td><td><strong>3.93</strong></td><td><strong>4.54</strong></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+
             </tbody>
           </table>
-          <p class="metric-note">
-            注：根据论文描述，TIV2V 当前暂无专门的 task-specific 基线模型，因此该列在 task-specific 行中为空。
-          </p>
+          
         </div>
       </div>
     </section>
 
     <section id="bibtex" class="section">
       <div class="container narrow">
-        <h2 class="section-title">BibTeX</h2>
+        <h2 class="section-title section-title-compact">BibTeX</h2>
         <div class="bibtex-box">
 <pre><code>@article{pan2026omniweaving,
   title   = {OmniWeaving: Towards Unified Video Generation with Free-form Composition and Reasoning},
@@ -546,7 +341,7 @@
 
   <footer>
     <div class="container">
-      <p>Built for OmniWeaving project page. Design inspired by modern academic project pages (WiseEdit / WorldEdit / UniVideo style).</p>
+      <p>Built for OmniWeaving project page. Website template adapted from <a href="https://ddt-llama.github.io/" target="_blank">DDT-LLaMA</a> and <a href="https://qnancy.github.io/wiseedit_project_page/" target="_blank">WiseEdit</a>.</p>
     </div>
   </footer>
 

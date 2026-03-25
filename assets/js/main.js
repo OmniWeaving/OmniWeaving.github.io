@@ -80,6 +80,18 @@ const i2vSource = {
   basePath: "assets/cases/i2v",
   // 可选：按 case ID 单独指定 prompt（不写则使用 I2V_PROMPT_BANK）
   casePrompts: {
+    "1": "The blonde woman is defending herself against an attacker in a tense confrontation.",
+    "2": "The driver is evading police by speeding",
+    "3": "The girls are celebrating the end of school, expressing freedom.",
+    "13": "The video aims to reveal the full scope of the LAX transportation network",
+    "21": "The players are performing a coordinated warm-up drill to enhance agility and team cohesion.",
+    "30": "She is warming up before a workout, to prepare her upper body for physical activity.",
+    "39": "The dog is exploring its surroundings with excitement across the yard.",
+    "41": "The medical team is urgently transporting a patient for immediate medical attention.",
+    "42": "She entered the store to shop for groceries",
+    "51": "The soldier is urgently trying to save his injured comrade amidst the chaos of battle", 
+    "59": "The woman is reacting to an unexpected magical attack",
+    "62": "The couple is celebrating their love by sharing a romantic moment.",
     // "1": "Your custom prompt for case 1"
   },
   files: i2vFiles
@@ -118,6 +130,10 @@ const editingSources = [
     name: "add",
     basePath: "assets/cases/editing/add",
     casePrompts: {
+      "1": "Add a bearded man wearing a baseball cap, standing in front of stacked wooden barrels, making hand gestures.",
+      "2": "Add a person lying backward on the red exercise ball, with her back arched over the ball.",
+      "3": "Add a young child wearing a yellow sun hat, standing beside the woman on the beach.",
+      "4": "Add a woman in a blue dress, standing behind the kitchen counter with her hands clasped in front of her."
       // "1": "Your custom prompt for editing/add case 1"
     },
     files: [
@@ -135,6 +151,10 @@ const editingSources = [
     name: "back",
     basePath: "assets/cases/editing/back",
     casePrompts: {
+      "1": "Replace the futuristic cyber garage with a industrial garage environment",
+      "2": "Replace the background with a futuristic scene",
+      "3": "Replace the mountain background with an industrial building scene.",
+      "4": "Replace the beach background with a kitchen interior."
       // "1": "Your custom prompt for editing/back case 1"
     },
     files: [
@@ -152,6 +172,10 @@ const editingSources = [
     name: "change",
     basePath: "assets/cases/editing/change",
     casePrompts: {
+      "1": "Change man's hair color to platinum blonde while keeping hair shape.",
+      "2": "Replace the man on the right with an elderly man.",
+      "3": "Change the white roses to yellow sunflowers while keeping the same composition.",
+      "4": "Change the boy's outfit to a bright red sweater and blue shorts while keeping his pose.",
       // "1": "Your custom prompt for editing/change case 1"
     },
     files: [
@@ -169,6 +193,10 @@ const editingSources = [
     name: "rm",
     basePath: "assets/cases/editing/rm",
     casePrompts: {
+      "1": "Remove the firefighter clad in a vibrant red uniform.",
+      "2": "Remove the overlaid caption text.",
+      "3": "Remove the man on the right.",
+      "4": "Remove the person in the left foreground facing the girl.",
       // "1": "Your custom prompt for editing/rm case 1"
     },
     files: [
@@ -186,6 +214,10 @@ const editingSources = [
     name: "style",
     basePath: "assets/cases/editing/style",
     casePrompts: {
+      "1": "Convert the sketch-animated video to a live-action, photorealistic format.",
+      "2": "Turn the video into an oil painting style.",
+      "3": "Convert the oil painting-style video to a live-action, photorealistic format.",
+      "4": "Turn the video into a vivid oil painting style."
       // "1": "Your custom prompt for editing/style case 1"
     },
     files: [
@@ -224,6 +256,11 @@ const tiv2vSources = [
     name: "replace",
     basePath: "assets/cases/tiv2v/replace",
     casePrompts: {
+      "1": "Replace the man in the video with the man in the image.",
+      "2": "Replace the glass vase in the video with the steel metallic vase in the image.",
+      "3": "Replace the green tree in the video with the autumn-colored tree in the image.",
+      "4": "Replace the blue shirt in the video with the suit in the image.",
+      "15": "Replace the white refrigerator in the video with the refrigerator in the image."
       // "1": "Your custom prompt for tiv2v/replace case 1"
     },
     files: [
@@ -248,6 +285,11 @@ const tiv2vSources = [
     name: "back",
     basePath: "assets/cases/tiv2v/back",
     casePrompts: {
+      "51": "Replace the background of the video with the scene shown in the image.",
+      "59": "Replace the background of the video with the scene shown in the image.",
+      "60": "Replace the background of the video with the scene shown in the image.",
+      "72": "Replace the background of the video with the scene shown in the image.",
+      "78": "Replace the background of the video with the scene shown in the image."
       // "51": "Your custom prompt for tiv2v/back case 51"
     },
     files: [
@@ -272,6 +314,12 @@ const tiv2vSources = [
     name: "add",
     basePath: "assets/cases/tiv2v/add",
     casePrompts: {
+      "95": "Add the woman in the image to stand on the left side of the man in the video and talk with him.",
+      "96": "Add the chair in the image to the right side of the living room in the video.",
+      "102": "Add the white car in the image that moves with the shadow on the left of the centerline in the video.",
+      "115": "Add the young girl in the image standing in the tree hollow in the video.",
+      "119": "Add the silver sedan in the image parked at the roadside in the video.",
+      "124": "Add the black dog in the image, sitting attentively on the pavement in front of the man in the video."
       // "95": "Your custom prompt for tiv2v/add case 95"
     },
     files: [
@@ -314,6 +362,12 @@ const reasoningSource = {
   basePath: "assets/cases/reasoning",
   // 可选：按 case ID 单独指定 prompt（不写则使用 reasoningPromptBank）
   casePrompts: {
+    "0": "The woman is preparing for an event or outing.",
+    "1": "Two girls were reunited with their long-lost dog.",
+    "2": "Generate a video based on the provided first and last frames.",
+    "3": "Generate a video based on the provided first and last frames.",
+    "4": "Generate a video based on the provided first and last frames.",
+    "5": "Generate a video based on the provided first and last frames.",
     // "0": "Your custom prompt for reasoning case 0"
   },
   files: [
@@ -1419,7 +1473,7 @@ async function renderReasoningCases() {
           <div class="reasoning-image-row count-${Math.min(entry.imagePaths.length, 2)}">
             ${entry.imagePaths.map((imgPath, idx) => `<img class="reasoning-input-image" src="${imgPath}" alt="Reasoning input ${entry.id}-${idx + 1}" />`).join("")}
           </div>
-          <p class="reasoning-user-prompt">${entry.prompt}</p>
+          <p class="reasoning-user-prompt"><strong class="prompt-inline-label">Prompt:</strong> ${entry.prompt}</p>
         </div>
 
         <div class="reasoning-col reasoning-trace-col">
