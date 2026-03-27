@@ -19,7 +19,6 @@ const t2vVideoFiles = [
   "38.mp4",
   "39.mp4",
   "49.mp4",
-  // "5.mp4",
   "282.mp4",
   "67.mp4",
   "8.mp4",
@@ -31,7 +30,6 @@ const t2vSource = {
   basePath: "assets/cases/t2v",
   // 可选：按 case ID 单独指定 prompt（不写则使用 T2V_PROMPT_BANK）
   casePrompts: {
-    // "5": "At the dining table, three young women pick up red wine glasses from the table to toast in celebration, rendered in a watercolor style.",
     "8": "A plump man sat down on the couch, which slowly sank under his weight.",
     "24": "A beautiful Chinese woman with long hair, wearing sunglasses and a long fur coat over a fitted knit dress and high heels, slowly lay down in the thick snow.",
     "31": "In a coffee shop, a boy wearing glasses is sitting and drinking coffee.",
@@ -55,8 +53,6 @@ const i2vFiles = [
   "1.png",
   "2.mp4",
   "2.png",
-  // "3.mp4",
-  // "3.png",
   "13.mp4",
   "13.png",
   "21.mp4",
@@ -71,8 +67,6 @@ const i2vFiles = [
   "42.png",
   "51.mp4",
   "51.png",
-  // "59.mp4",
-  // "59.png",
   "62.mp4",
   "62.png",
   "107.mp4",
@@ -87,7 +81,6 @@ const i2vSource = {
   casePrompts: {
     "1": "The blonde woman is defending herself against an attacker in a tense confrontation.",
     "2": "The driver is evading police by speeding",
-    "3": "The girls are celebrating the end of school, expressing freedom.",
     "13": "The video aims to reveal the full scope of the LAX transportation network",
     "21": "The players are performing a coordinated warm-up drill to enhance agility and team cohesion.",
     "30": "She is warming up before a workout, to prepare her upper body for physical activity.",
@@ -95,7 +88,6 @@ const i2vSource = {
     "41": "The medical team is urgently transporting a patient for immediate medical attention.",
     "42": "She entered the store to shop for groceries",
     "51": "The soldier is urgently trying to save his injured comrade amidst the chaos of battle", 
-    "59": "The woman is reacting to an unexpected magical attack",
     "62": "The couple is celebrating their love by sharing a romantic moment.",
     "107": "The woman is pleading for her life while being threatened with a firearm.",
     "120": "Highlight the facial expressions and reactions of women after experiencing terrible events"
@@ -319,8 +311,8 @@ const tiv2vSources = [
     name: "add",
     basePath: "assets/cases/tiv2v/add",
     casePrompts: {
-      "95": "Add the woman in the image to stand on the left side of the man in the video and talk with him.",
-      "96": "Add the chair in the image to the right side of the living room in the video.",
+      "9": "Add the pigeon in the image onto the cobblestone street near the man's feet in the video.",
+      "8": "Add the coffee mug in the image onto the desk near the keyboard in the video.",
       "102": "Add the white car in the image that moves with the shadow on the left of the centerline in the video.",
       "115": "Add the young girl in the image standing in the tree hollow in the video.",
       "119": "Add the silver sedan in the image parked at the roadside in the video.",
@@ -328,12 +320,10 @@ const tiv2vSources = [
       // "95": "Your custom prompt for tiv2v/add case 95"
     },
     files: [
-      "95_before.mp4",
-      "95_after.mp4",
-      "95.png",
-      "96_before.mp4",
-      "96_after.mp4",
-      "96.png",
+
+      "8_before.mp4",
+      "8_after.mp4",
+      "8.png",
       "102_before.mp4",
       "102_after.mp4",
       "102.png",
@@ -348,7 +338,10 @@ const tiv2vSources = [
       // "124.png"
       "130_before.mp4",
       "130_after.mp4",
-      "130.png"
+      "130.png",
+      "9_before.mp4",
+      "9_after.mp4",
+      "9.png",
     ]
   }
 ];
@@ -517,7 +510,8 @@ const flf2vSource = {
     "63": "Girl sways and gestures while singing, ending with a turn away.",
     "65": "Scissors slice litchi; hand peels back skin to reveal juicy white flesh.",
     "83": "The solo rabbit meets three others, forming a group in the forest.",
-    "84": "Silver Golf GTI drives away along winding forest road."
+    "84": "Silver Golf GTI drives away along winding forest road.",
+    "92": "From traffic light to historic building, capturing city life in motion."
 
 
 
@@ -533,7 +527,7 @@ const flf2vSource = {
 const interleavedSources = [
   {
     imageCount: 1,
-    basePath: "assets/cases/subject1_ori",
+    basePath: "assets/cases/subject1",
     // 可选：按 case ID 单独指定 prompt（不写则使用默认 promptBank）
     casePrompts: {
       "1": "The man in the image, initially speaks with a sad expression. As he continues, he gently tilts his head down toward the other person.",
@@ -560,7 +554,7 @@ const interleavedSources = [
   },
   {
     imageCount: 2,
-    basePath: "assets/cases/subject2_ori",
+    basePath: "assets/cases/subject1_back",
     casePrompts: {
       "68": "The woman in the first image looks surprised against the background of the second image. She briefly closes her eyes, then speaks while gripping the steering wheel.",
       "69": "The zongzi in the first image shift across the scene over the background in the second image due to a slow camera pan.",
@@ -591,7 +585,7 @@ const interleavedSources = [
   },
   {
     imageCount: 2,
-    basePath: "assets/cases/subject2_2",
+    basePath: "assets/cases/subject2",
     casePrompts: {
       "2": "The man in the first image speaks. The woman in the second image lowers her hand, turns to him, and gestures while talking.",
       "3": "The camera pans right, revealing the pastry rolls from the first image and the bowl of golden jelly from the second image.",
@@ -615,7 +609,7 @@ const interleavedSources = [
   },
   {
     imageCount: 3,
-    basePath: "assets/cases/subject3_ori",
+    basePath: "assets/cases/subject2_back",
     casePrompts: {
       "101": "The cat in the first image, appearing angry over the background of the third image, looks at the mouse from the second image that he is holding.",
       "107": "The woman in the first image holds the handbag in the second image up towards the camera while speaking over the background in the third image.",
@@ -652,7 +646,7 @@ const interleavedSources = [
   },
   {
     imageCount: 3,
-    basePath: "assets/cases/subject3_2",
+    basePath: "assets/cases/subject3",
     casePrompts: {
       "2": "The bear in the first image stirs the jam jar in the third image with the spoon in the second image. It scoops up jam with the spoon, lifts it, and opens its mouth to taste.",
       "9": "The man in the first image starts talking. The woman in the second image stands still. The woman in the third image also stands still with her arms crossed.",
@@ -699,7 +693,7 @@ const interleavedSources = [
   },
   {
     imageCount: 4,
-    basePath: "assets/cases/subject4",
+    basePath: "assets/cases/subject3_back",
     casePrompts: {
       "37": "The men in the first image, the second image, and the third image walk forward together on a staircase, examining documents in their hands against the background of the fourth image.",
       "39": "The men from the first, second, and third images cheerfully interacting and talking in the background shown in the fourth image.",
