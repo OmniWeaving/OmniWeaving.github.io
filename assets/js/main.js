@@ -19,7 +19,8 @@ const t2vVideoFiles = [
   "38.mp4",
   "39.mp4",
   "49.mp4",
-  "5.mp4",
+  // "5.mp4",
+  "282.mp4",
   "67.mp4",
   "8.mp4",
   "81.mp4",
@@ -30,7 +31,7 @@ const t2vSource = {
   basePath: "assets/cases/t2v",
   // 可选：按 case ID 单独指定 prompt（不写则使用 T2V_PROMPT_BANK）
   casePrompts: {
-    "5": "At the dining table, three young women pick up red wine glasses from the table to toast in celebration, rendered in a watercolor style.",
+    // "5": "At the dining table, three young women pick up red wine glasses from the table to toast in celebration, rendered in a watercolor style.",
     "8": "A plump man sat down on the couch, which slowly sank under his weight.",
     "24": "A beautiful Chinese woman with long hair, wearing sunglasses and a long fur coat over a fitted knit dress and high heels, slowly lay down in the thick snow.",
     "31": "In a coffee shop, a boy wearing glasses is sitting and drinking coffee.",
@@ -41,8 +42,8 @@ const t2vSource = {
     "67": "A little dog is lying in front of the gate, wagging its tail while drooling.",
     "81": "In the dessert shop, a female employee is intently making bread. Next to her, the shelves are neatly lined with a variety of desserts.",
     "93": "There is a throw pillow and a panda stuffed toy on the sofa. The entire video is presented in a watercolor style.",
-    "216": "The penguin colony is at the edge of the ice. The penguins in the colony jump into the water in a relay."
-
+    "216": "The penguin colony is at the edge of the ice. The penguins in the colony jump into the water in a relay.",
+    "282": "A stunning model, tall with long, slender legs, walks gracefully on the gloden sand, with her dress swaying in the wind."
 
     // "216": "Your custom prompt for case 216"
   },
@@ -54,8 +55,8 @@ const i2vFiles = [
   "1.png",
   "2.mp4",
   "2.png",
-  "3.mp4",
-  "3.png",
+  // "3.mp4",
+  // "3.png",
   "13.mp4",
   "13.png",
   "21.mp4",
@@ -70,10 +71,14 @@ const i2vFiles = [
   "42.png",
   "51.mp4",
   "51.png",
-  "59.mp4",
-  "59.png",
+  // "59.mp4",
+  // "59.png",
   "62.mp4",
-  "62.png"
+  "62.png",
+  "107.mp4",
+  "107.png",
+  "120.mp4",
+  "120.png",
 ];
 
 const i2vSource = {
@@ -92,6 +97,8 @@ const i2vSource = {
     "51": "The soldier is urgently trying to save his injured comrade amidst the chaos of battle", 
     "59": "The woman is reacting to an unexpected magical attack",
     "62": "The couple is celebrating their love by sharing a romantic moment.",
+    "107": "The woman is pleading for her life while being threatened with a firearm.",
+    "120": "Highlight the facial expressions and reactions of women after experiencing terrible events"
     // "1": "Your custom prompt for case 1"
   },
   files: i2vFiles
