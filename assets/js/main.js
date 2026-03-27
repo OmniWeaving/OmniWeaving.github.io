@@ -141,10 +141,6 @@ const editingSources = [
       "5": "Add a small potted green plant on the white shelf behind the man near the 'Barkley' sign.",
       "6": "Add a small dark green backpack onto the person's back.",
       "7": "Add a pair of reading glasses onto the open book near the bottom right corner of the right page."
-      // "2": "Add a person lying backward on the red exercise ball, with her back arched over the ball.",
-      // "3": "Add a young child wearing a yellow sun hat, standing beside the woman on the beach.",
-      // "4": "Add a woman in a blue dress, standing behind the kitchen counter with her hands clasped in front of her."
-      // "1": "Your custom prompt for editing/add case 1"
     },
     files: [
       "1_before.mp4",
@@ -186,7 +182,6 @@ const editingSources = [
       "2": "Replace the man on the right with an elderly man.",
       "3": "Change the white roses to yellow sunflowers while keeping the same composition.",
       "4": "Change the boy's outfit to a bright red sweater and blue shorts while keeping his pose.",
-      // "1": "Your custom prompt for editing/change case 1"
     },
     files: [
       "1_before.mp4",
@@ -329,7 +324,6 @@ const tiv2vSources = [
       "102": "Add the white car in the image that moves with the shadow on the left of the centerline in the video.",
       "115": "Add the young girl in the image standing in the tree hollow in the video.",
       "119": "Add the silver sedan in the image parked at the roadside in the video.",
-      // "124": "Add the black dog in the image, sitting attentively on the pavement in front of the man in the video."
       "130": "Add the wall clock in the image to the plain wall to the left of the person in the video."
       // "95": "Your custom prompt for tiv2v/add case 95"
     },
