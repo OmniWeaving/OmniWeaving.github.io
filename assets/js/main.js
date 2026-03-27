@@ -138,20 +138,23 @@ const editingSources = [
     basePath: "assets/cases/editing/add",
     casePrompts: {
       "1": "Add a bearded man wearing a baseball cap, standing in front of stacked wooden barrels, making hand gestures.",
-      "2": "Add a person lying backward on the red exercise ball, with her back arched over the ball.",
-      "3": "Add a young child wearing a yellow sun hat, standing beside the woman on the beach.",
-      "4": "Add a woman in a blue dress, standing behind the kitchen counter with her hands clasped in front of her."
+      "5": "Add a small potted green plant on the white shelf behind the man near the 'Barkley' sign.",
+      "6": "Add a small dark green backpack onto the person's back.",
+      "7": "Add a pair of reading glasses onto the open book near the bottom right corner of the right page."
+      // "2": "Add a person lying backward on the red exercise ball, with her back arched over the ball.",
+      // "3": "Add a young child wearing a yellow sun hat, standing beside the woman on the beach.",
+      // "4": "Add a woman in a blue dress, standing behind the kitchen counter with her hands clasped in front of her."
       // "1": "Your custom prompt for editing/add case 1"
     },
     files: [
       "1_before.mp4",
       "1_after.mp4",
-      "2_before.mp4",
-      "2_after.mp4",
-      "3_before.mp4",
-      "3_after.mp4",
-      "4_before.mp4",
-      "4_after.mp4"
+      "5_before.mp4",
+      "5_after.mp4",
+      "6_before.mp4",
+      "6_after.mp4",
+      "7_before.mp4",
+      "7_after.mp4"
     ]
   },
   {
@@ -326,7 +329,8 @@ const tiv2vSources = [
       "102": "Add the white car in the image that moves with the shadow on the left of the centerline in the video.",
       "115": "Add the young girl in the image standing in the tree hollow in the video.",
       "119": "Add the silver sedan in the image parked at the roadside in the video.",
-      "124": "Add the black dog in the image, sitting attentively on the pavement in front of the man in the video."
+      // "124": "Add the black dog in the image, sitting attentively on the pavement in front of the man in the video."
+      "130": "Add the wall clock in the image to the plain wall to the left of the person in the video."
       // "95": "Your custom prompt for tiv2v/add case 95"
     },
     files: [
@@ -345,9 +349,12 @@ const tiv2vSources = [
       "119_before.mp4",
       "119_after.mp4",
       "119.png",
-      "124_before.mp4",
-      "124_after.mp4",
-      "124.png"
+      // "124_before.mp4",
+      // "124_after.mp4",
+      // "124.png"
+      "130_before.mp4",
+      "130_after.mp4",
+      "130.png"
     ]
   }
 ];
